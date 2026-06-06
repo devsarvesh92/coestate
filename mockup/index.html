@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoEstate — Smart Way To Own A Holiday Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===== Consistent top nav ===== -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">Co<span>Estate</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html#how">How it works</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="index.html#why">About</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="contact.html" class="btn btn-primary btn-pill">Get In Touch</a>
+        <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" style="padding:0;">
+    <div class="hero-slides" id="heroSlides">
+      <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1600&q=80');"></div>
+      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=1600&q=80');"></div>
+      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1600&q=80');"></div>
+    </div>
+    <div class="hero-content">
+      <h1>Smart Way To Own A Holiday Home</h1>
+      <p>Co-own a fully managed luxury home from just &#8377;4.5 lacs &mdash; earn returns and enjoy free stays.</p>
+      <div class="hero-actions">
+        <a href="properties.html" class="btn btn-primary">Explore homes</a>
+        <a href="contact.html" class="btn btn-secondary" style="color:#fff;border-color:#fff;background:transparent;">Book your stay</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Search pill ===== -->
+  <div class="container">
+    <form class="search-pill" id="heroSearch" onsubmit="goSearch(event)">
+      <div class="search-seg">
+        <div class="label">Where</div>
+        <input class="seg-input" id="heroWhere" type="text" placeholder="Search destinations" autocomplete="off" />
+      </div>
+      <div class="search-seg seg-trigger" id="whenSeg">
+        <div class="label">When</div>
+        <div class="seg-value is-empty" id="whenDisplay">Add dates</div>
+        <input type="hidden" id="heroWhen" />
+        <div class="popover" id="whenPop"></div>
+      </div>
+      <div class="search-seg seg-trigger" id="sharesSeg">
+        <div class="label">Shares</div>
+        <div class="seg-value is-empty" id="sharesDisplay">How many?</div>
+        <input type="hidden" id="heroShares" />
+        <div class="popover" id="sharesPop">
+          <div class="stepper-pop">
+            <div>
+              <div class="stepper-title">Shares</div>
+              <div class="stepper-sub">How many would you like?</div>
+            </div>
+            <div class="stepper">
+              <button type="button" id="sharesMinus" aria-label="Fewer">&minus;</button>
+              <span id="sharesNum">1</span>
+              <button type="button" id="sharesPlus" aria-label="More">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="search-orb" data-icon="search" aria-label="Search"></button>
+    </form>
+  </div>
+
+  <!-- ===== How it works ===== -->
+  <section id="how" style="background:var(--surface-soft);">
+    <div class="container">
+    <div class="section-head center">
+      <h2>Own a holiday home in 3 simple steps</h2>
+      <p>Fractional ownership simply means a few people co-own one luxury home together — you pay only for your share, and enjoy the home and its earnings in the same proportion. No paperwork, no management hassle.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="icon" data-icon="search"></div>
+        <div class="num">Step 01</div>
+        <h3>Choose</h3>
+        <p>Pick a curated luxury home and decide how many shares you'd like to own.</p>
+      </div>
+      <div class="step">
+        <div class="icon" data-icon="home"></div>
+        <div class="num">Step 02</div>
+        <h3>Own</h3>
+        <p>You become a legally registered co-owner — like owning a flat jointly with family, but for a luxury holiday home you actually use and earn from.</p>
+      </div>
+      <div class="step">
+        <div class="icon" data-icon="umbrella"></div>
+        <div class="num">Step 03</div>
+        <h3>Enjoy</h3>
+        <p>We manage everything end to end. You enjoy stays and track your returns.</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ===== Featured properties ===== -->
+  <section class="container">
+    <div class="section-head center">
+      <h2>Featured holiday homes</h2>
+      <p>Premium, fully managed homes you can co-own today.</p>
+    </div>
+    <div class="cards">
+      <a class="card" href="property.html">
+        <div class="card-photo">
+          <div class="carousel" data-carousel>
+            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80" alt="" />
+            <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=800&q=80" alt="" />
+            <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=800&q=80" alt="" />
+          </div>
+          <span class="badge">Guest favorite</span>
+          <button class="heart" data-icon="heart" aria-label="Save"></button>
+        </div>
+        <div class="card-meta">
+          <div class="card-row"><span class="card-title">Villa Azure</span><span class="rating"><span data-icon="star" data-filled style="display:inline-flex;vertical-align:-3px;"></span> 4.8</span></div>
+          <div class="card-loc">Alibaug, Maharashtra</div>
+          <div class="card-price">From <b>6 lacs</b> / share</div>
+        </div>
+      </a>
+      <a class="card" href="property.html">
+        <div class="card-photo">
+          <div class="carousel" data-carousel>
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="" />
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="" />
+            <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80" alt="" />
+          </div>
+          <span class="badge">Guest favorite</span>
+          <button class="heart" data-icon="heart" aria-label="Save"></button>
+        </div>
+        <div class="card-meta">
+          <div class="card-row"><span class="card-title">The Misty Haven</span><span class="rating"><span data-icon="star" data-filled style="display:inline-flex;vertical-align:-3px;"></span> 4.9</span></div>
+          <div class="card-loc">Kasauli, Himachal Pradesh</div>
+          <div class="card-price">From <b>5.5 lacs</b> / share</div>
+        </div>
+      </a>
+      <a class="card" href="property.html">
+        <div class="card-photo">
+          <div class="carousel" data-carousel>
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="" />
+            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="" />
+            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80" alt="" />
+          </div>
+          <span class="badge">Guest favorite</span>
+          <button class="heart" data-icon="heart" aria-label="Save"></button>
+        </div>
+        <div class="card-meta">
+          <div class="card-row"><span class="card-title">Lakeview Retreat</span><span class="rating"><span data-icon="star" data-filled style="display:inline-flex;vertical-align:-3px;"></span> 4.8</span></div>
+          <div class="card-loc">Naukuchiatal, Uttarakhand</div>
+          <div class="card-price">From <b>7 lacs</b> / share</div>
+        </div>
+      </a>
+      <a class="card" href="property.html">
+        <div class="card-photo">
+          <div class="carousel" data-carousel>
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="" />
+            <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=800&q=80" alt="" />
+            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80" alt="" />
+          </div>
+          <span class="badge">Guest favorite</span>
+          <button class="heart" data-icon="heart" aria-label="Save"></button>
+        </div>
+        <div class="card-meta">
+          <div class="card-row"><span class="card-title">Casa Solana</span><span class="rating"><span data-icon="star" data-filled style="display:inline-flex;vertical-align:-3px;"></span> 4.7</span></div>
+          <div class="card-loc">Anjuna, Goa</div>
+          <div class="card-price">From <b>9 lacs</b> / share</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== Why CoEstate ===== -->
+  <section id="why" style="background:var(--surface-soft);">
+    <div class="container">
+      <div class="section-head center">
+        <h2>Why CoEstate</h2>
+        <p>A new-age PropTech platform that makes fractional real estate simple, transparent and rewarding.</p>
+      </div>
+      <div class="features">
+        <div class="feature"><div class="icon" data-icon="wallet"></div><h4>Easy to buy</h4><p>Own a share from &#8377;6 lacs with a fully digital, paperless onboarding.</p></div>
+        <div class="feature"><div class="icon" data-icon="sofa"></div><h4>Fully furnished &amp; managed</h4><p>Interiors, housekeeping and bookings are all handled for you.</p></div>
+        <div class="feature"><div class="icon" data-icon="wrench"></div><h4>Low maintenance cost</h4><p>Shared upkeep means a fraction of the cost of sole ownership.</p></div>
+        <div class="feature"><div class="icon" data-icon="star"></div><h4>Premium inventory</h4><p>Hand-picked luxury homes in India's top holiday destinations.</p></div>
+        <div class="feature"><div class="icon" data-icon="shield"></div><h4>Safe &amp; legally yours</h4><p>Each home is owned by its own company; you hold registered shares, so your ownership is legally protected.</p></div>
+        <div class="feature"><div class="icon" data-icon="trending"></div><h4>High returns</h4><p>Rental income plus long-term capital appreciation on your share.</p></div>
+        <div class="feature"><div class="icon" data-icon="ticket"></div><h4>Unlimited holidays</h4><p>Stay at your home every year and swap across our network.</p></div>
+        <div class="feature"><div class="icon" data-icon="repeat"></div><h4>Easy to liquidate</h4><p>Resell your shares anytime on our co-owner marketplace.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Testimonials ===== -->
+  <section class="container">
+    <div class="section-head center">
+      <div class="eyebrow">Loved by co-owners</div>
+      <h2>Real owners, real returns</h2>
+    </div>
+    <div class="quotes">
+      <div class="quote">
+        <div class="stars"><span data-icon="star" data-filled></span><span data-icon="star" data-filled></span><span data-icon="star" data-filled></span><span data-icon="star" data-filled></span><span data-icon="star" data-filled></span></div>
+        <p class="text">"I always wanted a place in Goa but couldn't justify the cost. With CoEstate I own a share of a stunning villa, get rental income, and holiday there every year."</p>
+        <div class="who">
+          <img class="avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=84&h=84&q=80" alt="" />
+          <div><b>Rohan Mehta</b><span>Co-owner since 2024 &middot; Bengaluru</span></div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="stars"><span data-icon="star" data-filled></span><span data-icon="star" data-filled></span><span data-icon="star" data-filled></span><span data-icon="star" data-filled></span><span data-icon="star" data-filled></span></div>
+        <p class="text">"The whole process was paperless and transparent. Knowing each home is owned by its own registered company gave me real confidence that my ownership is protected."</p>
+        <div class="who">
+          <img class="avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=84&h=84&q=80" alt="" />
+          <div><b>Ananya Iyer</b><span>Co-owner since 2023 &middot; Mumbai</span></div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="stars"><span data-icon="star" data-filled></span><span data-icon="star" data-filled></span><span data-icon="star" data-filled></span><span data-icon="star" data-filled></span><span data-icon="star" data-filled></span></div>
+        <p class="text">"Zero maintenance headaches. They manage everything and the returns have beaten my fixed deposits comfortably. Highly recommend."</p>
+        <div class="who">
+          <img class="avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=84&h=84&q=80" alt="" />
+          <div><b>Vikram Nair</b><span>Co-owner since 2022 &middot; Pune</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA band ===== -->
+  <section id="cta" style="background:var(--surface-soft);">
+    <div class="container" style="text-align:center;">
+      <h2 style="font-size:32px;font-weight:700;letter-spacing:-0.5px;">Dream holiday home ownership for 1/11th the cost</h2>
+      <p class="muted" style="margin:14px auto 0;max-width:560px;">Download our brochure or talk to our team to find the perfect home for you.</p>
+      <div style="margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-primary">Get in touch</a>
+        <a href="properties.html" class="btn btn-secondary">Browse homes</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer (simplified) ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bar">
+        <a href="index.html" class="brand" style="font-size:22px;">Co<span>Estate</span></a>
+        <nav class="footer-nav">
+          <a href="index.html#how">How it works</a>
+          <a href="properties.html">Properties</a>
+          <a href="index.html#why">About</a>
+          <a href="contact.html">Get in touch</a>
+        </nav>
+      </div>
+      <div class="legal">&copy; 2026 CoEstate Proptech Pvt. Ltd. &middot; hello@coestate.in</div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

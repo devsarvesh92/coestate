@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoEstate — Villa Azure, Alibaug</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">Co<span>Estate</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#how">How it works</a></li>
+        <li><a href="properties.html" class="active">Properties</a></li>
+        <li><a href="index.html#why">About</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="contact.html" class="btn btn-primary btn-pill">Get In Touch</a>
+        <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="detail-head">
+      <h1>Villa Azure</h1>
+      <div class="detail-sub"><span data-icon="star" data-filled style="display:inline-flex;vertical-align:-3px;"></span> 4.8 rating &middot; 120 reviews &middot; <span data-icon="pin" style="display:inline-flex;vertical-align:-3px;"></span> Alibaug, Maharashtra</div>
+    </div>
+
+    <div class="gallery">
+      <img class="main" src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1000&q=80" alt="" />
+      <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=600&q=80" alt="" />
+      <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" alt="" />
+      <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=600&q=80" alt="" />
+      <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=600&q=80" alt="" />
+    </div>
+
+    <div class="detail-body">
+      <div class="detail-main">
+        <h2>What this home offers</h2>
+        <div class="amenities">
+          <div class="amenity"><span data-icon="pool"></span> Private pool</div>
+          <div class="amenity"><span data-icon="bed"></span> 4 bedrooms</div>
+          <div class="amenity"><span data-icon="wifi"></span> High-speed Wifi</div>
+          <div class="amenity"><span data-icon="chef"></span> Chef on call</div>
+          <div class="amenity"><span data-icon="eye"></span> Sea view</div>
+          <div class="amenity"><span data-icon="car"></span> Free parking</div>
+        </div>
+
+        <p class="desc">
+          Villa Azure is a luxurious 4-bedroom coastal retreat in the serene town of Alibaug.
+          Overlooking the Arabian Sea, the villa offers elegant interiors, a private pool,
+          lush gardens, and the perfect setting to unwind with family and friends. The home is
+          professionally managed end-to-end, so co-owners simply show up and enjoy.
+        </p>
+
+        <div class="briks-block">
+          <h2>Own 1/11th from 6 lacs</h2>
+          <div class="progress"><div style="width:64%"></div></div>
+          <p class="muted">7 of 11 shares available &middot; be a co-owner in a professionally managed luxury home.</p>
+        </div>
+      </div>
+
+      <!-- Reservation card captures user data -->
+      <aside class="reserve">
+        <div class="price">₹6,00,000 <small>per share</small></div>
+
+        <form id="reserveForm">
+          <label class="field-label">Select shares</label>
+          <div class="stepper">
+            <button type="button" onclick="step(-1)" aria-label="Less">&minus;</button>
+            <span id="brikCount">1</span>
+            <button type="button" onclick="step(1)" aria-label="More">+</button>
+          </div>
+
+          <div class="field" data-required style="margin-top:var(--s-base);">
+            <label>Your name</label>
+            <input name="name" placeholder="Full name" />
+            <div class="err">Please enter your name.</div>
+          </div>
+          <div class="field" data-required>
+            <label>Email</label>
+            <input name="email" type="email" placeholder="you@email.com" />
+            <div class="err">Please enter a valid email.</div>
+          </div>
+          <div class="field" data-required>
+            <label>Phone</label>
+            <input name="phone" placeholder="+91" />
+            <div class="err">Please enter your phone.</div>
+          </div>
+
+          <input type="hidden" name="property" value="Villa Azure" />
+
+          <div class="fee"><span>Price (<span id="brikCountLabel">1</span> share)</span><span id="brikLinePrice">₹6,00,000</span></div>
+          <div class="fee"><span>One-time onboarding fee</span><span>₹25,000</span></div>
+          <div class="fee"><span>Annual maintenance (est.)</span><span>₹18,000</span></div>
+          <div class="fee"><span>GST</span><span>₹4,500</span></div>
+          <div class="fee total"><span>Total due today</span><span id="brikTotal">₹6,47,500</span></div>
+
+          <button class="btn btn-primary btn-full" type="submit" style="margin-top:var(--s-base);">Reserve your share</button>
+          <p class="muted body-sm" style="text-align:center;margin-top:8px;">No payment taken now — our team will reach out.</p>
+        </form>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bar">
+        <a href="index.html" class="brand" style="font-size:22px;">Co<span>Estate</span></a>
+        <nav class="footer-nav">
+          <a href="index.html#how">How it works</a>
+          <a href="properties.html">Properties</a>
+          <a href="index.html#why">About</a>
+          <a href="contact.html">Get in touch</a>
+        </nav>
+      </div>
+      <div class="legal">&copy; 2026 CoEstate Proptech Pvt. Ltd. &middot; hello@coestate.in</div>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoEstate — Holiday homes you can co-own</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">Co<span>Estate</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#how">How it works</a></li>
+        <li><a href="properties.html" class="active">Properties</a></li>
+        <li><a href="index.html#why">About</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="contact.html" class="btn btn-primary btn-pill">Get In Touch</a>
+        <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="container">
+    <div class="section-head" style="margin-bottom:24px;">
+      <h2>Holiday homes you can co-own</h2>
+      <p>Each home is owned by its own company — buy as few or as many shares as you like.</p>
+    </div>
+
+    <div class="listing-controls">
+      <div class="search-input">
+        <span data-icon="search"></span>
+        <input type="text" id="searchInput" placeholder="Search by name or destination (e.g. Goa, villa, Manali)" />
+      </div>
+      <div class="filter-wrap">
+        <button class="btn btn-secondary btn-pill" id="filterBtn" type="button"><span data-icon="sliders"></span>Filters</button>
+        <div class="filter-panel" id="filterPanel">
+          <h5>Price per share</h5>
+          <label class="filter-opt"><input type="radio" name="price" value="any" checked /> Any price</label>
+          <label class="filter-opt"><input type="radio" name="price" value="lt6" /> Under &#8377;6 lacs</label>
+          <label class="filter-opt"><input type="radio" name="price" value="6to8" /> &#8377;6 &ndash; 8 lacs</label>
+          <label class="filter-opt"><input type="radio" name="price" value="gt8" /> Over &#8377;8 lacs</label>
+        </div>
+      </div>
+      <div class="results-count" id="resultsCount">8 homes</div>
+    </div>
+
+    <div class="cards" id="cardsGrid">
+      <a class="card" href="property.html" data-cat="beachfront villas" data-price="6" data-name="villa azure alibaug maharashtra">
+        <div class="card-photo">
+          <div class="carousel" data-carousel>
+            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80" alt="" />
+            <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=800&q=80" alt="" />
+          </div>
+          <span class="badge">Guest favorite</span><button class="heart" data-icon="heart" aria-label="Save"></button>
+        </div>
+        <div class="card-meta"><div class="card-row"><span class="card-title">Villa Azure</span><span class="rating"><span data-icon="star" data-filled style="display:inline-flex;vertical-align:-3px;"></span> 4.8</span></div>
+          <div class="card-loc">Alibaug, Maharashtra</div><div class="card-price">From <b>6 lacs</b> / share</div></div>
+      </a>
+      <a class="card" href="property.html" data-cat="mountains" data-price="5.5" data-name="the misty haven kasauli himachal pradesh">
+        <div class="card-photo">
+          <div class="carousel" data-carousel>
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="" />
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="" />
+          </div>
+          <span class="badge">Guest favorite</span><button class="heart" data-icon="heart" aria-label="Save"></button>
+        </div>
+        <div class="card-meta"><div class="card-row"><span class="card-title">The Misty Haven</span><span class="rating"><span data-icon="star" data-filled style="display:inline-flex;vertical-align:-3px;"></span> 4.9</span></div>
+          <div class="card-loc">Kasauli, Himachal Pradesh</div><div class="card-price">From <b>5.5 lacs</b> / share</div></div>
+      </a>
+      <a class="card" href="property.html" data-cat="lakeside mountains" data-price="7" data-name="lakeview retreat naukuchiatal uttarakhand">
+        <div class="card-photo">
+          <div class="carousel" data-carousel>
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="" />
+            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="" />
+          </div>
+          <span class="badge">Guest favorite</span><button class="heart" data-icon="heart" aria-label="Save"></button>
+        </div>
+        <div class="card-meta"><div class="card-row"><span class="card-title">Lakeview Retreat</span><span class="rating"><span data-icon="star" data-filled style="display:inline-flex;vertical-align:-3px;"></span> 4.8</span></div>
+          <div class="card-loc">Naukuchiatal, Uttarakhand</div><div class="card-price">From <b>7 lacs</b> / share</div></div>
+      </a>
+      <a class="card" href="property.html" data-cat="beachfront villas" data-price="9" data-name="casa solana anjuna goa">
+        <div class="card-photo">
+          <div class="carousel" data-carousel>
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="" />
+            <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=800&q=80" alt="" />
+          </div>
+          <span class="badge">Guest favorite</span><button class="heart" data-icon="heart" aria-label="Save"></button>
+        </div>
+        <div class="card-meta"><div class="card-row"><span class="card-title">Casa Solana</span><span class="rating"><span data-icon="star" data-filled style="display:inline-flex;vertical-align:-3px;"></span> 4.7</span></div>
+          <div class="card-loc">Anjuna, Goa</div><div class="card-price">From <b>9 lacs</b> / share</div></div>
+      </a>
+      <a class="card" href="property.html" data-cat="mountains cabins" data-price="4.5" data-name="pine and peaks manali himachal pradesh">
+        <div class="card-photo">
+          <div class="carousel" data-carousel>
+            <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80" alt="" />
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="" />
+          </div>
+          <span class="badge">Guest favorite</span><button class="heart" data-icon="heart" aria-label="Save"></button>
+        </div>
+        <div class="card-meta"><div class="card-row"><span class="card-title">Pine &amp; Peaks</span><span class="rating"><span data-icon="star" data-filled style="display:inline-flex;vertical-align:-3px;"></span> 4.8</span></div>
+          <div class="card-loc">Manali, Himachal Pradesh</div><div class="card-price">From <b>4.5 lacs</b> / share</div></div>
+      </a>
+      <a class="card" href="property.html" data-cat="beachfront" data-price="7.5" data-name="saffron shores varkala kerala">
+        <div class="card-photo">
+          <div class="carousel" data-carousel>
+            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80" alt="" />
+            <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=800&q=80" alt="" />
+          </div>
+          <span class="badge">Guest favorite</span><button class="heart" data-icon="heart" aria-label="Save"></button>
+        </div>
+        <div class="card-meta"><div class="card-row"><span class="card-title">Saffron Shores</span><span class="rating"><span data-icon="star" data-filled style="display:inline-flex;vertical-align:-3px;"></span> 4.9</span></div>
+          <div class="card-loc">Varkala, Kerala</div><div class="card-price">From <b>7.5 lacs</b> / share</div></div>
+      </a>
+      <a class="card" href="property.html" data-cat="cabins mountains" data-price="5" data-name="the kumaon cottage mukteshwar uttarakhand">
+        <div class="card-photo">
+          <div class="carousel" data-carousel>
+            <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80" alt="" />
+            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="" />
+          </div>
+          <span class="badge">Guest favorite</span><button class="heart" data-icon="heart" aria-label="Save"></button>
+        </div>
+        <div class="card-meta"><div class="card-row"><span class="card-title">The Kumaon Cottage</span><span class="rating"><span data-icon="star" data-filled style="display:inline-flex;vertical-align:-3px;"></span> 4.8</span></div>
+          <div class="card-loc">Mukteshwar, Uttarakhand</div><div class="card-price">From <b>5 lacs</b> / share</div></div>
+      </a>
+      <a class="card" href="property.html" data-cat="beachfront villas" data-price="6.5" data-name="marina bay house pondicherry">
+        <div class="card-photo">
+          <div class="carousel" data-carousel>
+            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80" alt="" />
+            <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=800&q=80" alt="" />
+          </div>
+          <span class="badge">Guest favorite</span><button class="heart" data-icon="heart" aria-label="Save"></button>
+        </div>
+        <div class="card-meta"><div class="card-row"><span class="card-title">Marina Bay House</span><span class="rating"><span data-icon="star" data-filled style="display:inline-flex;vertical-align:-3px;"></span> 4.7</span></div>
+          <div class="card-loc">Pondicherry</div><div class="card-price">From <b>6.5 lacs</b> / share</div></div>
+      </a>
+    </div>
+    <div class="no-results" id="noResults">No homes match your search. Try clearing filters.</div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bar">
+        <a href="index.html" class="brand" style="font-size:22px;">Co<span>Estate</span></a>
+        <nav class="footer-nav">
+          <a href="index.html#how">How it works</a>
+          <a href="properties.html">Properties</a>
+          <a href="index.html#why">About</a>
+          <a href="contact.html">Get in touch</a>
+        </nav>
+      </div>
+      <div class="legal">&copy; 2026 CoEstate Proptech Pvt. Ltd. &middot; hello@coestate.in</div>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

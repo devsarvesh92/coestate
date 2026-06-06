@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Generated screenshots & test artifacts (regenerable via the shot scripts)
+_shots/
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+*.pem
+
+# Build output (future Next.js app)
+.next/
+out/
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

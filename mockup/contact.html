@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoEstate — Get in touch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">Co<span>Estate</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#how">How it works</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="index.html#why">About</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="contact.html" class="btn btn-primary btn-pill active">Get In Touch</a>
+        <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="container">
+    <div class="form-grid">
+      <div class="lead">
+        <h1>Let's get you started</h1>
+        <p>Own a fraction of a luxury holiday home in dream destinations. CoEstate makes it simple, transparent and rewarding.</p>
+        <ul class="trust">
+          <li><span class="tick" data-icon="check"></span> Legally registered, transparent ownership</li>
+          <li><span class="tick" data-icon="check"></span> Fully managed, end to end</li>
+          <li><span class="tick" data-icon="check"></span> High returns, shared intelligently</li>
+        </ul>
+      </div>
+
+      <form id="enquiryForm" class="form-card">
+        <div class="field" data-required>
+          <label>Full name</label>
+          <input name="name" placeholder="Enter your full name" />
+          <div class="err">Please enter your name.</div>
+        </div>
+        <div class="field" data-required>
+          <label>Email</label>
+          <input name="email" type="email" placeholder="Enter your email address" />
+          <div class="err">Please enter a valid email.</div>
+        </div>
+        <div class="field" data-required>
+          <label>Phone</label>
+          <input name="phone" placeholder="Enter your phone number" />
+          <div class="err">Please enter your phone.</div>
+        </div>
+        <div class="field" data-required>
+          <label>I'm interested in</label>
+          <select name="interest">
+            <option value="">Select an option</option>
+            <option>Investing in a holiday home</option>
+            <option>Booking a stay</option>
+            <option>Listing my property</option>
+            <option>General enquiry</option>
+          </select>
+          <div class="err">Please choose an option.</div>
+        </div>
+        <div class="field">
+          <label>Message</label>
+          <textarea name="message" placeholder="Tell us a bit about what you're looking for..."></textarea>
+        </div>
+        <button class="btn btn-primary btn-full" type="submit">Send enquiry</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bar">
+        <a href="index.html" class="brand" style="font-size:22px;">Co<span>Estate</span></a>
+        <nav class="footer-nav">
+          <a href="index.html#how">How it works</a>
+          <a href="properties.html">Properties</a>
+          <a href="index.html#why">About</a>
+          <a href="contact.html">Get in touch</a>
+        </nav>
+      </div>
+      <div class="legal">&copy; 2026 CoEstate Proptech Pvt. Ltd. &middot; hello@coestate.in</div>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
