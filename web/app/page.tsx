@@ -5,8 +5,7 @@ export default function Home() {
     <section
       className="relative min-h-[560px] flex items-center"
       style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1600&q=80')",
+        backgroundImage: "url('/images/hero-1.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
