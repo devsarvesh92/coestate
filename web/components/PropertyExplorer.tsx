@@ -1,7 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { Search } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Search, ChevronDown } from "lucide-react";
 import type { Property } from "@/lib/properties";
 import { PropertyCard } from "./PropertyCard";
 
@@ -19,9 +19,27 @@ function priceMatch(p: number, filter: string) {
   return true;
 }
 
-export function PropertyExplorer({ properties }: { properties: Property[] }) {
-  const [query, setQuery] = useState("");
+export function PropertyExplorer({
+  properties,
+  initialQuery = "",
+}: {
+  properties: Property[];
+  initialQuery?: string;
+}) {
+  const [query, setQuery] = useState(initialQuery);
   const [price, setPrice] = useState("any");
+  const [priceOpen, setPriceOpen] = useState(false);
+  const priceRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function onDocClick(e: MouseEvent) {
+      if (priceRef.current && !priceRef.current.contains(e.target as Node)) setPriceOpen(false);
+    }
+    document.addEventListener("click", onDocClick);
+    return () => document.removeEventListener("click", onDocClick);
+  }, []);
+
+  const priceLabel = priceOptions.find((o) => o.value === price)?.label ?? "Any price";
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -44,17 +62,35 @@ export function PropertyExplorer({ properties }: { properties: Property[] }) {
             className="w-full bg-transparent text-[15px] outline-none"
           />
         </label>
-        <select
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          className="rounded-full border border-hairline px-4 py-3 text-[15px] outline-none focus:border-border-strong"
-        >
-          {priceOptions.map((o) => (
-            <option key={o.value} value={o.value}>
-              {o.label}
-            </option>
-          ))}
-        </select>
+        <div className="relative" ref={priceRef}>
+          <button
+            type="button"
+            onClick={() => setPriceOpen((v) => !v)}
+            className="flex items-center gap-2 rounded-full border border-hairline px-4 py-3 text-[15px] hover:border-border-strong"
+          >
+            {priceLabel}
+            <ChevronDown size={16} className="text-muted" />
+          </button>
+          {priceOpen && (
+            <div className="absolute right-0 top-[calc(100%+8px)] z-30 w-52 rounded-md border border-hairline bg-canvas p-1.5 shadow-card">
+              {priceOptions.map((o) => (
+                <button
+                  key={o.value}
+                  type="button"
+                  onClick={() => {
+                    setPrice(o.value);
+                    setPriceOpen(false);
+                  }}
+                  className={`block w-full rounded-sm px-3 py-2.5 text-left text-sm hover:bg-surface-soft ${
+                    price === o.value ? "font-semibold" : ""
+                  }`}
+                >
+                  {o.label}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
         <span className="whitespace-nowrap text-sm text-muted">
           {results.length} {results.length === 1 ? "home" : "homes"}
         </span>

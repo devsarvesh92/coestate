@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
+import { HeroSearch } from "@/components/HeroSearch";
 import { HowItWorks } from "@/components/HowItWorks";
 import { WhyCoEstate } from "@/components/WhyCoEstate";
 import { Testimonials } from "@/components/Testimonials";
@@ -12,6 +13,10 @@ export default function Home() {
   return (
     <>
       <Hero />
+
+      <div className="px-6">
+        <HeroSearch />
+      </div>
 
       <HowItWorks />
 

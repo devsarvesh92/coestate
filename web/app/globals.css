@@ -49,12 +49,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Accessible focus ring (matches prototype) */
+/* Accessible focus ring for links/buttons (form controls use their own
+   focus styles via border colour, so they don't get a harsh black box). */
 a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
+button:focus-visible {
   outline: 2px solid var(--color-ink);
   outline-offset: 2px;
   border-radius: 4px;
