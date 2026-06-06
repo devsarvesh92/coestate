@@ -1,51 +1,66 @@
 import Link from "next/link";
+import { Hero } from "@/components/Hero";
+import { HowItWorks } from "@/components/HowItWorks";
+import { WhyCoEstate } from "@/components/WhyCoEstate";
+import { Testimonials } from "@/components/Testimonials";
+import { PropertyCard } from "@/components/PropertyCard";
+import { properties } from "@/lib/properties";
 
 export default function Home() {
+  const featured = properties.slice(0, 4);
+
   return (
-    <section
-      className="relative min-h-[560px] flex items-center"
-      style={{
-        backgroundImage: "url('/images/hero-1.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.42) 45%, rgba(0,0,0,0.1) 100%)",
-        }}
-      />
-      <div className="relative z-10 mx-auto max-w-[1280px] w-full px-6 text-white">
-        <h1
-          className="font-semibold leading-[1.08] tracking-tight max-w-[600px]"
-          style={{ fontSize: "clamp(30px,4vw,44px)", textShadow: "0 2px 18px rgba(0,0,0,0.45)" }}
-        >
-          Smart Way To Own A Holiday Home
-        </h1>
-        <p
-          className="mt-3 text-xl font-medium"
-          style={{ textShadow: "0 1px 12px rgba(0,0,0,0.4)" }}
-        >
-          Co-own a fully managed luxury home from just ₹4.5 lacs — earn returns and enjoy free
-          stays.
-        </p>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <Link
-            href="/properties"
-            className="inline-flex items-center rounded-sm bg-rausch px-6 py-3.5 font-medium text-white hover:bg-rausch-active transition-colors"
-          >
-            Explore homes
-          </Link>
-          <Link
-            href="/contact"
-            className="inline-flex items-center rounded-sm border border-white px-6 py-3.5 font-medium text-white hover:bg-white/10 transition-colors"
-          >
-            Book your stay
-          </Link>
+    <>
+      <Hero />
+
+      <HowItWorks />
+
+      {/* Featured homes */}
+      <section className="py-[72px]">
+        <div className="mx-auto max-w-[1280px] px-6">
+          <div className="mb-10 text-center">
+            <h2 className="text-[28px] font-bold tracking-tight">Featured holiday homes</h2>
+            <p className="mx-auto mt-2 max-w-[640px] text-muted">
+              Premium, fully managed homes you can co-own today.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+            {featured.map((p) => (
+              <PropertyCard key={p.slug} property={p} />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <WhyCoEstate />
+
+      <Testimonials />
+
+      {/* CTA */}
+      <section className="bg-surface-soft py-[72px]">
+        <div className="mx-auto max-w-[1280px] px-6 text-center">
+          <h2 className="text-[32px] font-bold tracking-tight">
+            Dream holiday home ownership for 1/11th the cost
+          </h2>
+          <p className="mx-auto mt-3.5 max-w-[560px] text-muted">
+            Download our brochure or talk to our team to find the perfect home for you.
+          </p>
+          <div className="mt-7 flex flex-wrap justify-center gap-3">
+            <Link
+              href="/contact"
+              className="inline-flex items-center rounded-sm bg-rausch px-6 py-3.5 font-medium text-white transition-colors hover:bg-rausch-active"
+            >
+              Get in touch
+            </Link>
+            <Link
+              href="/properties"
+              className="inline-flex items-center rounded-sm border border-ink px-6 py-3.5 font-medium text-ink transition-colors hover:bg-surface-soft"
+            >
+              Browse homes
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
