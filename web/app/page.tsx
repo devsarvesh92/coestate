@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { HeroSearch } from "@/components/HeroSearch";
 import { HowItWorks } from "@/components/HowItWorks";
+import { ConceptVideo } from "@/components/ConceptVideo";
 import { WhyCoEstate } from "@/components/WhyCoEstate";
 import { Testimonials } from "@/components/Testimonials";
 import { PropertyCard } from "@/components/PropertyCard";
@@ -17,6 +18,8 @@ export default function Home() {
       <div className="px-6">
         <HeroSearch />
       </div>
+
+      <ConceptVideo />
 
       <HowItWorks />
 

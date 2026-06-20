@@ -29,3 +29,6 @@ Thumbs.db
 .idea/
 .vscode/
 .vercel
+
+# AI video generation workspace (clips, playwright, build scripts)
+video-gen/
